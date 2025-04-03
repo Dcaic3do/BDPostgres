@@ -1,10 +1,15 @@
 package com.example.BDPostgres.Model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Entity
 public class Cursos {
     @Id
@@ -19,45 +24,4 @@ public class Cursos {
     @ManyToMany(mappedBy = "cursos")
     private Set<Estudiante> estudiantes = new HashSet<>();
 
-    public Cursos() {
-    }
-
-    public Cursos(long codigo, String nombre, Docente docente, Set<Estudiante> estudiantes) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.docente = docente;
-        this.estudiantes = estudiantes;
-    }
-
-    public long getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(long codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Docente getDocente() {
-        return docente;
-    }
-
-    public void setDocente(Docente docente) {
-        this.docente = docente;
-    }
-
-    public Set<Estudiante> getEstudiantes() {
-        return estudiantes;
-    }
-
-    public void setEstudiantes(Set<Estudiante> estudiantes) {
-        this.estudiantes = estudiantes;
-    }
 }

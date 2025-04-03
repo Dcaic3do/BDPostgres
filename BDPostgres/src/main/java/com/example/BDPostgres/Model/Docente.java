@@ -1,9 +1,15 @@
 package com.example.BDPostgres.Model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Entity
 public class Docente {
     @Id
@@ -55,5 +61,15 @@ public class Docente {
 
     public void setCursos(List<Cursos> cursos) {
         this.cursos = cursos;
+    }
+
+    @Override
+    public String toString() {
+        return "Docente{" +
+                "codigo=" + codigo +
+                ", nombre='" + nombre + '\'' +
+                ", especialidad='" + especialidad + '\'' +
+                ", cursos=" + cursos +
+                '}';
     }
 }
